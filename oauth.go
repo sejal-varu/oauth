@@ -54,15 +54,16 @@ func init() {
     //     os.Exit(1)
     // }
     // json.Unmarshal(file, &cred)
-    cred.Cid = "96034157001-prn48cn5l79k0ri8rp34b72kpik5vc17.apps.googleusercontent.com"
-    cred.Csecret = "WbQtajsp5S0gow-Yb--7ll5m"
+    cred.Cid = "584291823668-bsjs8mme12oolqtrs5qd8vslkl7fgbt6.apps.googleusercontent.com"
+    cred.Csecret = "xdH0EPWItfWbZ3jpX9pYkZyD"
 
     conf = &oauth2.Config{
         ClientID:     cred.Cid,
         ClientSecret: cred.Csecret,
         RedirectURL:  "http://127.0.0.1:3000/auth",
         Scopes: []string{
-            "http://127.0.0.1:3000/auth/google/callback", // You have to select your own scope from here -> https://developers.google.com/identity/protocols/googlescopes#google_sign-in
+            "https://www.googleapis.com/auth/userinfo.email",
+            "https://www.googleapis.com/auth/userinfo.profile",
         },
         Endpoint: google.Endpoint,
     }
