@@ -3,7 +3,7 @@ package main
 import (
     "crypto/rand"
     "encoding/base64"
-    "encoding/json"
+    // "encoding/json"
     "io/ioutil"
     "fmt"
     "log"
@@ -48,12 +48,14 @@ func randToken() string {
 
 func init() {
     fmt.Println(os.Getwd())
-    file, err := ioutil.ReadFile("creds.json")
-    if err != nil {
-        log.Printf("File error: %v\n", err)
-        os.Exit(1)
-    }
-    json.Unmarshal(file, &cred)
+    // file, err := ioutil.ReadFile("creds.json")
+    // if err != nil {
+    //     log.Printf("File error: %v\n", err)
+    //     os.Exit(1)
+    // }
+    // json.Unmarshal(file, &cred)
+    cred.Cid = "96034157001-prn48cn5l79k0ri8rp34b72kpik5vc17.apps.googleusercontent.com"
+    cred.Csecret = "WbQtajsp5S0gow-Yb--7ll5m"
 
     conf = &oauth2.Config{
         ClientID:     cred.Cid,
